@@ -38,6 +38,24 @@ function printQn(qn) {
     console.log(qn[4]);
 }
 
+//add one to player scores
+//input provides the current player
+function addPlayerScore(player) {
+    if(player === 1) {
+         player1Score = player1Score + 1;
+     } else {
+         player2Score = player2Score + 1;
+    }
+}
+
+//switch between the two players
+function swopPlayer() {
+      if(currentPlayer===1) {
+         currentPlayer=2;
+      } else {
+         currentPlayer=2;
+      }
+}
 
 //start the quiz here
 while(currentQn!==qnSet.length) {
@@ -47,22 +65,14 @@ while(currentQn!==qnSet.length) {
     ans = prompt("Your answer");
     console.log("Player " + currentPlayer + " selected: " + ans);
     if(parseInt(ans)===qnSet[currentQn][1]) {
-        if(currentPlayer === 1) {
-             player1Score = player1Score + 1;
-         } else {
-             player2Score = player2Score + 1;
-        }
+        addPlayerScore(player);
     }
 
     //swop player
-    if(currentPlayer===1) {
-       currentPlayer=2;
-    } else {
-       currentPlayer=2;
-    }
+    swopPlayer();
 
     //change to next question
-    currentQn = currentQn + 1;
+    currentQn++;
 }
 
 //determine who wins
