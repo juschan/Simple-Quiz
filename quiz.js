@@ -51,11 +51,7 @@ function addPlayerScore(player) {
 
 //switch between the two players
 function swopPlayer() {
-      if(currentPlayer===1) {
-         currentPlayer=2;
-      } else {
-         currentPlayer=2;
-      }
+      currentPlayer = (currentPlayer===1)? 2: 1 ;
 }
 
 //start the quiz here
@@ -66,8 +62,13 @@ printQn(qnSet[currentQn]);
 $( 'h3' ).click(function() {
         //if it's not the last question, then continue the quiz
         if(currentQn!==qnSet.length) {
+
+            //get answer. Adjust for one-based indexing
             ans=$(this).index()-1;
+
+            //Provide feedback on status
             $('h4').text("Player " + currentPlayer + " selected: " + ans);
+            //check if it is the correct answer
             if(parseInt(ans)===qnSet[currentQn][1]) {
                 addPlayerScore(player);
             }
@@ -83,13 +84,10 @@ $( 'h3' ).click(function() {
                 printQn(qnSet[currentQn]);
             } else {
                 //else, it is the last question. Determine who is the winner.
-                //
                 decideWhoWins();
             }
-            //nothing else to do
         }
-    });
+    }); //click event listener ends here.
 
 //quiz ends here
-
 });
