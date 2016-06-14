@@ -10,13 +10,33 @@ var qn2= ["Player 2: Apple Colour?", "1) Red", "2) Blue", "3) Yellow", "4) Green
 var qn3= ["Player 1: Banana Colour?", "1) Red", "2) Blue", "3) Yellow", "4) Green", 3];
 var qn4= ["Player 2: Grass Colour?", "1) Red", "2) Blue", "3) Yellow", "4) Green", 4];
 
+//functions
+//decideWhoWins determines and prints the winner or draw
+function decideWhoWins() {
+    if(player1Score === player2Score) {
+        console.log("DRAW");
+    } else if (player1Score>player2Score) {
+     console.log("Player 1 wins.");
+    } else {
+     console.log("Player 2 wins.");
+    }
+}
+
+//printQn outputs the question and options
+//it accepts an array where the first element is the question.
+//the remaining 4 elements are the options.
+function printQn(qn) {
+    console.log(qn[0]);
+    console.log(qn[1]);
+    console.log(qn[2]);
+    console.log(qn[3]);
+    console.log(qn[4]);
+}
+
+
 //start the quiz here
 //print first question and 4 options to player 1
-console.log(qn1[0]);
-console.log(qn1[1]);
-console.log(qn1[2]);
-console.log(qn1[3]);
-console.log(qn1[4]);
+printQn(qn1);
 
 //capture the answer from player 1
 ans = prompt("Your answer");
@@ -29,11 +49,7 @@ if(parseInt(ans)===2) {
 
 //switch to player 2.
 //print second question and 4 options to player 2
-console.log(qn2[0]);
-console.log(qn2[1]);
-console.log(qn2[2]);
-console.log(qn2[3]);
-console.log(qn2[4]);
+printQn(qn2);
 
 //capture the answer from player 2
 ans = prompt("Your answer");
@@ -45,11 +61,7 @@ if(parseInt(ans)===1) {
 }
 
 //print third question and 4 options to player 1
-console.log(qn3[0]);
-console.log(qn3[1]);
-console.log(qn3[2]);
-console.log(qn3[3]);
-console.log(qn3[4]);
+printQn(qn3);
 
 //capture the answer from player 1
 ans = prompt("Your answer");
@@ -62,11 +74,7 @@ if(parseInt(ans)===3) {
 //switch to player 2.
 
 //print fourth question and 4 options to player 2
-console.log(qn4[0]);
-console.log(qn4[1]);
-console.log(qn4[2]);
-console.log(qn4[3]);
-console.log(qn4[4]);
+printQn(qn4);
 
 //capture the answer from player 2
 ans = prompt("Your answer");
@@ -79,16 +87,6 @@ if(parseInt(ans)===4) {
 
 
 //Check to see who wins
-if(player1Score === player2Score) {
-    //if player 1 and 2 scores are the same, it is a draw.
-    console.log("DRAW");
-} else if (player1Score>player2Score) {
-    //if player 1 score is greater than player 2, player 1 wins.
-    console.log("Player 1 wins.");
-
-} else {
-    //if player 2 score is greater than player 1, player 2 wins.
-    console.log("Player 2 wins.");
-}
+decideWhoWins();
 
 //end of quiz
