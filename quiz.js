@@ -10,6 +10,8 @@ var qn2= ["Player 2: Apple Colour?", "1) Red", "2) Blue", "3) Yellow", "4) Green
 var qn3= ["Player 1: Banana Colour?", "1) Red", "2) Blue", "3) Yellow", "4) Green", 3];
 var qn4= ["Player 2: Grass Colour?", "1) Red", "2) Blue", "3) Yellow", "4) Green", 4];
 
+var qnSet=[qn1, qn2, qn3, qn4];
+
 //functions
 //decideWhoWins determines and prints the winner or draw
 function decideWhoWins() {
@@ -36,52 +38,52 @@ function printQn(qn) {
 
 //start the quiz here
 //print first question and 4 options to player 1
-printQn(qn1);
+printQn(qnSet[0]);
 
 //capture the answer from player 1
 ans = prompt("Your answer");
 console.log("Player 1 selected: " + ans);
 
 //Update score for player 1 if correct
-if(parseInt(ans)===2) {
+if(parseInt(ans)===qnSet[0][5]) {
     player1Score = player1Score + 1;
 }
 
 //switch to player 2.
 //print second question and 4 options to player 2
-printQn(qn2);
+printQn(qnSet[1]);
 
 //capture the answer from player 2
 ans = prompt("Your answer");
 console.log("Player 2 selected: " + ans);
 
 //Update score for player 2 if correct
-if(parseInt(ans)===1) {
+if(parseInt(ans)===qnSet[1][5]) {
     player2Score = player2Score + 1;
 }
 
 //print third question and 4 options to player 1
-printQn(qn3);
+printQn(qnSet[2]);
 
 //capture the answer from player 1
 ans = prompt("Your answer");
 console.log("Player 1 selected: " + ans);
 
 //Update score for player 2 if correct
-if(parseInt(ans)===3) {
+if(parseInt(ans)===qnSet[2][5]) {
     player1Score = player1Score + 1;
 }
 //switch to player 2.
 
 //print fourth question and 4 options to player 2
-printQn(qn4);
+printQn(qnSet[3]);
 
 //capture the answer from player 2
 ans = prompt("Your answer");
 console.log("Player 2 selected: " + ans);
 
 //Update score for player 2 if correct
-if(parseInt(ans)===4) {
+if(parseInt(ans)===qnSet[3][5]) {
     player2Score = player2Score + 1;
 }
 
