@@ -1,3 +1,4 @@
+$(function () {
 //create some variables to store player 1 and 2 scores.
 //create a variable to store answers
 //create arrays to store questions
@@ -19,11 +20,11 @@ var currentPlayer=1;
 //decideWhoWins determines and prints the winner or draw
 function decideWhoWins() {
     if(player1Score === player2Score) {
-        console.log("DRAW");
+        $('h4').text("DRAW");
     } else if (player1Score>player2Score) {
-     console.log("Player 1 wins.");
+     $('h4').text("Player 1 wins.");
     } else {
-     console.log("Player 2 wins.");
+     $('h4').text("Player 2 wins.");
     }
 }
 
@@ -31,11 +32,11 @@ function decideWhoWins() {
 //it accepts an array where the first element is the question.
 //the remaining 4 elements are the options.
 function printQn(qn) {
-    console.log(qn[0]);
-    console.log(qn[1]);
-    console.log(qn[2]);
-    console.log(qn[3]);
-    console.log(qn[4]);
+    $('h2').text(qn[0]);
+    $('#1').text(qn[1]);
+    $('#2').text(qn[2]);
+    $('#3').text(qn[3]);
+    $('#4').text(qn[4]);
 }
 
 //add one to player scores
@@ -63,7 +64,7 @@ while(currentQn!==qnSet.length) {
 
     //get answer
     ans = prompt("Your answer");
-    console.log("Player " + currentPlayer + " selected: " + ans);
+    $('h4').text("Player " + currentPlayer + " selected: " + ans);
     if(parseInt(ans)===qnSet[currentQn][1]) {
         addPlayerScore(player);
     }
@@ -78,3 +79,4 @@ while(currentQn!==qnSet.length) {
 //determine who wins
 decideWhoWins();
 //end of quiz
+});
