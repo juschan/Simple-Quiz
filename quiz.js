@@ -12,6 +12,9 @@ var qn4= ["Player 2: Grass Colour?", "1) Red", "2) Blue", "3) Yellow", "4) Green
 
 var qnSet=[qn1, qn2, qn3, qn4];
 
+var currentQn=0;
+var currentPlayer=1;
+
 //functions
 //decideWhoWins determines and prints the winner or draw
 function decideWhoWins() {
@@ -37,58 +40,31 @@ function printQn(qn) {
 
 
 //start the quiz here
-//print first question and 4 options to player 1
-printQn(qnSet[0]);
+while(currentQn!==qnSet.length) {
+    printQn(qnSet[currentQn]);
 
-//capture the answer from player 1
-ans = prompt("Your answer");
-console.log("Player 1 selected: " + ans);
+    //get answer
+    ans = prompt("Your answer");
+    console.log("Player " + currentPlayer + " selected: " + ans);
+    if(parseInt(ans)===qnSet[currentQn][1]) {
+        if(currentPlayer === 1) {
+             player1Score = player1Score + 1;
+         } else {
+             player2Score = player2Score + 1;
+        }
+    }
 
-//Update score for player 1 if correct
-if(parseInt(ans)===qnSet[0][5]) {
-    player1Score = player1Score + 1;
+    //swop player
+    if(currentPlayer===1) {
+       currentPlayer=2;
+    } else {
+       currentPlayer=2;
+    }
+
+    //change to next question
+    currentQn = currentQn + 1;
 }
 
-//switch to player 2.
-//print second question and 4 options to player 2
-printQn(qnSet[1]);
-
-//capture the answer from player 2
-ans = prompt("Your answer");
-console.log("Player 2 selected: " + ans);
-
-//Update score for player 2 if correct
-if(parseInt(ans)===qnSet[1][5]) {
-    player2Score = player2Score + 1;
-}
-
-//print third question and 4 options to player 1
-printQn(qnSet[2]);
-
-//capture the answer from player 1
-ans = prompt("Your answer");
-console.log("Player 1 selected: " + ans);
-
-//Update score for player 2 if correct
-if(parseInt(ans)===qnSet[2][5]) {
-    player1Score = player1Score + 1;
-}
-//switch to player 2.
-
-//print fourth question and 4 options to player 2
-printQn(qnSet[3]);
-
-//capture the answer from player 2
-ans = prompt("Your answer");
-console.log("Player 2 selected: " + ans);
-
-//Update score for player 2 if correct
-if(parseInt(ans)===qnSet[3][5]) {
-    player2Score = player2Score + 1;
-}
-
-
-//Check to see who wins
+//determine who wins
 decideWhoWins();
-
 //end of quiz
