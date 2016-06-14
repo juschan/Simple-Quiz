@@ -1,16 +1,22 @@
 //create some variables to store player 1 and 2 scores.
 //create a variable to store answers
+//create arrays to store questions
 var player1Score=0;
 var player2Score=0;
 var ans;
 
+var qn1= ["Player 1: Sky Colour?", "1) Red", "2) Blue", "3) Yellow", "4) Green", 2];
+var qn2= ["Player 2: Apple Colour?", "1) Red", "2) Blue", "3) Yellow", "4) Green", 1];
+var qn3= ["Player 1: Banana Colour?", "1) Red", "2) Blue", "3) Yellow", "4) Green", 3];
+var qn4= ["Player 2: Grass Colour?", "1) Red", "2) Blue", "3) Yellow", "4) Green", 4];
+
 //start the quiz here
 //print first question and 4 options to player 1
-console.log("Player 1: Sky Colour?");
-console.log("1) Red");
-console.log("2) Blue");
-console.log("3) Yellow");
-console.log("4) Green");
+console.log(qn1[0]);
+console.log(qn1[1]);
+console.log(qn1[2]);
+console.log(qn1[3]);
+console.log(qn1[4]);
 
 //capture the answer from player 1
 ans = prompt("Your answer");
@@ -23,11 +29,11 @@ if(parseInt(ans)===2) {
 
 //switch to player 2.
 //print second question and 4 options to player 2
-console.log("Player 2: Apple Colour?");
-console.log("1) Red");
-console.log("2) Blue");
-console.log("3) Yellow");
-console.log("4) Green");
+console.log(qn2[0]);
+console.log(qn2[1]);
+console.log(qn2[2]);
+console.log(qn2[3]);
+console.log(qn2[4]);
 
 //capture the answer from player 2
 ans = prompt("Your answer");
@@ -39,11 +45,11 @@ if(parseInt(ans)===1) {
 }
 
 //print third question and 4 options to player 1
-console.log("Player 1: Banana Colour?");
-console.log("1) Red");
-console.log("2) Blue");
-console.log("3) Yellow");
-console.log("4) Green");
+console.log(qn3[0]);
+console.log(qn3[1]);
+console.log(qn3[2]);
+console.log(qn3[3]);
+console.log(qn3[4]);
 
 //capture the answer from player 1
 ans = prompt("Your answer");
@@ -56,11 +62,11 @@ if(parseInt(ans)===3) {
 //switch to player 2.
 
 //print fourth question and 4 options to player 2
-console.log("Player 2: Grass Colour?");
-console.log("1) Red");
-console.log("2) Blue");
-console.log("3) Yellow");
-console.log("4) Green");
+console.log(qn4[0]);
+console.log(qn4[1]);
+console.log(qn4[2]);
+console.log(qn4[3]);
+console.log(qn4[4]);
 
 //capture the answer from player 2
 ans = prompt("Your answer");
