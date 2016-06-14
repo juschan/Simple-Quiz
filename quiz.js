@@ -59,24 +59,37 @@ function swopPlayer() {
 }
 
 //start the quiz here
-while(currentQn!==qnSet.length) {
-    printQn(qnSet[currentQn]);
+//print the first question
+printQn(qnSet[currentQn]);
 
-    //get answer
-    ans = prompt("Your answer");
-    $('h4').text("Player " + currentPlayer + " selected: " + ans);
-    if(parseInt(ans)===qnSet[currentQn][1]) {
-        addPlayerScore(player);
-    }
+//event listener to do something when option is clicked.
+$( 'h3' ).click(function() {
+        //if it's not the last question, then continue the quiz
+        if(currentQn!==qnSet.length) {
+            ans=$(this).index()-1;
+            $('h4').text("Player " + currentPlayer + " selected: " + ans);
+            if(parseInt(ans)===qnSet[currentQn][1]) {
+                addPlayerScore(player);
+            }
 
-    //swop player
-    swopPlayer();
+            //swop player
+            swopPlayer();
 
-    //change to next question
-    currentQn++;
-}
+            //change to next question
+            currentQn++;
 
-//determine who wins
-decideWhoWins();
-//end of quiz
+            //print next question, only if it is not the last question
+            if(currentQn!==qnSet.length) {
+                printQn(qnSet[currentQn]);
+            } else {
+                //else, it is the last question. Determine who is the winner.
+                //
+                decideWhoWins();
+            }
+            //nothing else to do
+        }
+    });
+
+//quiz ends here
+
 });
